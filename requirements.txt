@@ -4,4 +4,5 @@ matplotlib
 seaborn 
 scikit-learn
 flask
+gunicorn==22.0.0
 #-e .

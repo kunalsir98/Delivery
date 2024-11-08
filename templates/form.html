@@ -6,33 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delivery Data Predictor</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
+        /* Resetting default browser styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
         }
 
+        /* Fade-in animation for entire page */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Container styling */
         .container {
-            max-width: 400px;
-            margin: auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 480px;
+            background-color: #1e1e1e;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+            border: 1px solid #333;
+            animation: slideUp 0.8s ease-in-out;
         }
 
+        /* Slide-up animation for container */
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h2 {
+            text-align: center;
+            color: #80cbc4;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        /* Styling for form elements */
         .form-group {
             margin-bottom: 20px;
         }
 
         label {
             font-weight: bold;
-            color: #333;
+            color: #b0bec5;
             display: block;
             margin-bottom: 8px;
         }
@@ -40,46 +71,68 @@
         input[type="number"],
         select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
+            padding: 14px;
+            border: 1px solid #37474f;
+            border-radius: 8px;
+            background-color: #263238;
+            color: #e0f7fa;
             font-size: 16px;
+            transition: border-color 0.3s ease-in-out;
         }
 
-        select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5"><polygon points="0,0 10,0 5,5" style="fill:%23aaa;" /></svg>');
-            background-repeat: no-repeat;
-            background-position: right 10px top 50%;
-            background-size: 8px 5px;
-            padding-right: 30px;
-        }
-
+        /* Focus effect for form fields */
         input[type="number"]:focus,
         select:focus {
-            border-color: #66afe9;
+            border-color: #80cbc4;
             outline: none;
         }
 
+        /* Styling for the submit button */
         input[type="submit"] {
-            background-color: #ff5f5f;
-            color: #fff;
+            background-color: #00796b;
+            color: #ffffff;
             border: none;
-            padding: 14px 20px;
-            border-radius: 5px;
+            padding: 16px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
+            font-size: 18px;
+            transition: background-color 0.3s ease-in-out, transform 0.2s;
             width: 100%;
             margin-top: 20px;
         }
 
+        /* Hover and active effect for submit button */
         input[type="submit"]:hover {
-            background-color: #ff3f3f;
+            background-color: #004d40;
+            transform: scale(1.02);
+        }
+
+        input[type="submit"]:active {
+            background-color: #00251a;
+            transform: scale(0.98);
+        }
+
+        /* Styling for custom dropdown icon */
+        .form-group select {
+            appearance: none;
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            padding-right: 30px;
+        }
+
+        /* Custom dropdown arrow */
+        .form-group select {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5"><polygon points="0,0 10,0 5,5" style="fill:%2380cbc4;" /></svg>');
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+        }
+
+        /* Glow effect for the container */
+        .container:hover {
+            box-shadow: 0 8px 20px rgba(0, 150, 136, 0.5);
+            transition: box-shadow 0.3s ease-in-out;
         }
     </style>
 </head>
@@ -87,7 +140,7 @@
 <body>
 
     <div class="container">
-        <h2 style="text-align: center; margin-bottom: 20px;">Delivery Data Predictor</h2>
+        <h2>Delivery Data Predictor</h2>
         <form action="{{ url_for('predict_datapoint') }}" method="POST">
             <div class="form-group">
                 <label for="Delivery_person_Age">Delivery Person Age:</label>
@@ -149,13 +202,10 @@
                     <option value="Metropolitian">Metropolitian</option>
                 </select>
             </div>
-            <input type="submit" value="Predict" style="background-color: #4CAF50;">
+            <input type="submit" value="Predict">
         </form>
     </div>
 
 </body>
 
 </html>
-
-
-
