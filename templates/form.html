@@ -20,7 +20,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            padding: 20px;
             overflow: hidden;
             animation: fadeIn 1s ease-in-out;
         }
@@ -34,9 +35,9 @@
         /* Container styling */
         .container {
             width: 100%;
-            max-width: 480px;
+            max-width: 400px;
             background-color: #1e1e1e;
-            padding: 40px;
+            padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
             border: 1px solid #333;
@@ -52,31 +53,32 @@
         h2 {
             text-align: center;
             color: #80cbc4;
-            margin-bottom: 30px;
-            font-size: 24px;
+            margin-bottom: 20px;
+            font-size: 22px;
         }
 
         /* Styling for form elements */
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         label {
             font-weight: bold;
             color: #b0bec5;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            font-size: 14px;
         }
 
         input[type="number"],
         select {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             border: 1px solid #37474f;
             border-radius: 8px;
             background-color: #263238;
             color: #e0f7fa;
-            font-size: 16px;
+            font-size: 14px;
             transition: border-color 0.3s ease-in-out;
         }
 
@@ -92,10 +94,10 @@
             background-color: #00796b;
             color: #ffffff;
             border: none;
-            padding: 16px;
+            padding: 14px;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
             transition: background-color 0.3s ease-in-out, transform 0.2s;
             width: 100%;
             margin-top: 20px;
@@ -115,24 +117,43 @@
         /* Styling for custom dropdown icon */
         .form-group select {
             appearance: none;
-            background-position: right 12px center;
+            background-position: right 10px center;
             background-repeat: no-repeat;
-            background-size: 16px;
-            padding-right: 30px;
+            background-size: 12px;
+            padding-right: 24px;
         }
 
         /* Custom dropdown arrow */
         .form-group select {
-            appearance: none;
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5"><polygon points="0,0 10,0 5,5" style="fill:%2380cbc4;" /></svg>');
             background-repeat: no-repeat;
-            background-position: right 12px center;
+            background-position: right 10px center;
         }
 
         /* Glow effect for the container */
         .container:hover {
             box-shadow: 0 8px 20px rgba(0, 150, 136, 0.5);
             transition: box-shadow 0.3s ease-in-out;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 20px;
+            }
+
+            label {
+                font-size: 12px;
+            }
+
+            input[type="number"],
+            select {
+                font-size: 14px;
+            }
+
+            input[type="submit"] {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
